@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <h2>Let's play Etch-a-Sketch!</h2>
+
+        <div id="container">
+
+        </div>
+        <div id="someDiv">
+            <button id="btn">Reset</button>
+        </div>
+    </body>
+
+
+    <script>
+        //Creating an element
+        let container = document.getElementById("container");
+        let newDiv;
+        for(let i = 0; i < 256; i++) {
+            newDiv = document.createElement("div");
+            newDiv.classList.add("cell");
+            container.appendChild(newDiv);
+        }
+
+        let cell = document.querySelectorAll(".cell");
+        cell.forEach(function(div) {
+            div.addEventListener("mouseover", function() {
+                div.classList.add("item");
+            })
+        })
+
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function() {
+            cell.forEach(function(div) {
+                div.classList.remove("item");
+            })
+        })
+    </script>
+</html>
